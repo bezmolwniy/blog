@@ -1,0 +1,10 @@
+<div class="col-lg-4 col-lg-offset-4">
+	<h1>My Posts</h1>
+	<hr>
+	<% @posts.each do |post| %>
+		<p>
+			<%= post.created_at.strftime("%d/%m/%Y %H:%M") %>
+			<%= post.title %>
+		</p>
+	<% end %>
+</div>

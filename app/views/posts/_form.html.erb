@@ -1,12 +1,5 @@
-#_form.html.erb
-
 <%= simple_form_for @post do |f| %>
   <%= f.input :title %>
   <%= f.input :body, as: :text %>
   <%= f.button :submit %>
 <% end %>
-
-#show.html.erb
-
-<h1><%= @post.title %></h1>
-<p><%= @post.body %></p>

@@ -1,11 +1,9 @@
-<div class="col-lg-4 col-lg-offset-4">
-  <h1><%= @post.title %></h1>
-  <p><%= @post.body %></p>
-  <p>
-    <%= link_to "Get back", posts_path %>
-    <% if user_signed_in? %>
-      | <%= link_to "Delete", post_path, method: :delete, data: { confirm: "Are u seriosly?" } %> |
-      <%= link_to "Edit", edit_post_path %>
-    <% end %>
-  </p>
-</div>
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<p>
+  <%= link_to "Get back", posts_path %>
+  <% if user_signed_in? %>
+    | <%= link_to "Delete", post_path, method: :delete, data: { confirm: "Are u seriosly?" } %> |
+    <%= link_to "Edit", edit_post_path %>
+  <% end %>
+</p>

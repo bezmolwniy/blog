@@ -1,9 +1,8 @@
-<div class="col-lg-4 col-lg-offset-4">
-  <hr>
+<div class="posts">
   <% @posts.each do |post| %>
-    <p>
-      <%= post.created_at.strftime("%d/%m/%Y %H:%M") %>
-      <%= link_to post.title, post %>
-    </p>
+    <div class="post">
+        <%= link_to post.title, post %>
+        <p class="post-date"><%= post.created_at.strftime("%d/%m/%Y") %></p>
+    </div>
   <% end %>
 </div>

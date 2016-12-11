@@ -8,8 +8,8 @@ require 'mina/rvm'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, '78.155.207.196'
-set :user, 'bezmolwniy-blog'
+set :domain, '78.155.207.47'
+set :user, 'blog'
 set :deploy_to, "/home/#{fetch(:user)}/app"
 set :repository, 'git@github.com:bezmolwniy/blog.git'
 set :branch, 'master'

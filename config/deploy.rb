@@ -16,7 +16,7 @@ set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log', 'public/system']
+set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log']
 
 # Optional settings:
 #   set :user, 'foobar'    # Username in the server to SSH to.
@@ -82,18 +82,6 @@ task :deploy => :environment do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
-
-    fetch(:shared_dirs, []).each do |linked_dir|
-      command %{mkdir -p #{File.dirname("./#{linked_dir}")}}
-      command %{rm -rf "./#{linked_dir}"}
-      command %{ln -s "#{fetch(:shared_path)}/#{linked_dir}" "./#{linked_dir}"}
-    end
-
-    # Workaround for https://github.com/mina-deploy/mina/issues/452
-    fetch(:shared_files, []).each do |linked_path|
-      command %{rm -f "./#{linked_path}"}
-    end
-
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
